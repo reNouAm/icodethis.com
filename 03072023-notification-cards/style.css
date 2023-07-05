@@ -1,0 +1,148 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --clr-bg: hsl(270, 83%, 98%);
+    --clr-prim: hsl(282, 70%, 94%);
+    --clr-green: hsl(86, 54%, 51%);
+    --clr-red: hsl(0, 72%, 59%);
+    --rad: .75rem;
+    --offset: -430px;
+
+    --bs-init: hsla(240, 30%, 28%, 0.123) 0px 13px 27px -5px, hsla(0, 0%, 0%, 0.185) 0px 8px 16px -8px;
+}
+body {
+    background-color: var(--clr-bg);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    font-size: .8rem;
+    display: grid;
+    place-items: center;
+}
+.app {
+    padding: 200px;
+    position: relative;
+}
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.circles circle {
+    fill: #df96fc;
+}
+#small {
+    animation: float 3s infinite;
+}
+#big {
+    animation: float2 3s infinite;
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.card {
+    background-color: white;
+    border-radius: var(--rad);
+    box-shadow: var(--bs-init);
+    padding: 2rem 1.5rem;
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    inset: 0;
+    left: var(--offset);
+    margin: auto;
+}
+.card:is(.top)::before {
+    background-color: hsla(120, 47%, 70%, 0.100);
+    animation: success 2s infinite;
+}
+.card:is(.bottom)::before {
+    background-color: hsla(0, 100%, 50%, 0.100);
+}
+.card:is(.bottom) {
+    animation: shake 700ms infinite;
+}
+.card .logo {
+    margin-right: .5rem;
+}
+.card .header {
+    font-size: 1rem;
+    margin-bottom: .2rem;
+}
+.card .description {
+    font-size: .7em;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--clr-bg);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3e%3cpath fill='%238f8f8f' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z'/%3e%3c/svg%3e");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.logo {
+    float: left;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(2%);
+        scale: 1.01;
+        opacity: .2;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes float2 {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2%);
+        scale: 1.01;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes success {
+    20% {
+    transform: scale(2);
+    }
+    40% {
+        transform: scale(1.8);
+    }
+    100% {
+        transform: scale(5);
+    }
+}
+@keyframes shake {
+  20%, 80% {
+    transform: translate3d(0, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-2px, -2px, 0);
+    scale: 1.02;
+  }
+  40%, 60% {
+    transform: translate3d(2px, 2px, 0);
+  }
+}
