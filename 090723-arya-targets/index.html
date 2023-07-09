@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+        integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+<body>
+  <div class="app login-page">
+    <div class="account-button">CHANGE ACCOUNT <span class="fa fa-angle-down"></span></div>
+    <div class="account-list">
+        <div class="arya logged">Arya</div>
+        <div class="john">John</div>
+    </div>
+    <div class="avatar login-user-icon">
+    </div>
+    <p class="wellcome-message">Welcome back, <span class="username">Arya</span></p>
+    <form class="form">
+        <input type="password" class="password-input" placeholder="Enter your password">
+        <button type="button" class="login-button">Login</button>
+    </form>
+    <div class="text-button" id="cantLogin">Unable to login?</div>
+</div>
+<div class="app user-page">
+    <div class="header">
+        <div class="avatar user-icon"></div>
+        <p class="username">Arya</p>
+        <div class="search-button fa fa-search" aria-hidden="true"></div>
+    </div>
+    <div class="lists">
+        <div class="list" id="targetList">
+            <div class="list-name">Targets</div>
+            <div class="list-progress">
+                <div class="value"></div>
+            </div>
+        </div>
+        <div class="text-button" id="addNewList">+ Add new list</div>
+    </div>
+</div>
+<div class="app tasks-page">
+    <div class="header">
+        <div class="back-icon fa fa-arrow-left" aria-hidden="true""></div>
+        <div class="list-name">Targets</div>
+        <div class="menu-button fa fa-ellipsis-h" aria-hidden="true"></div>
+    </div>
+    <div class="tasks" id="undoneTasks">
+        <div class="task">
+            <p class="task-title">Cersei Lannister</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task">
+            <p class="task-title">The Mountain</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task">
+            <p class="task-title">Beric Dondarion</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task">
+            <p class="task-title">Thoros of Myr</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task">
+            <p class="task-title">Ilyn Payne</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task">
+            <p class="task-title">The Hound</p>
+            <span class="fa" class="" aria-hidden="true"></span>
+        </div>
+        <div class="task done">
+            <p class="task-title">Walder Frey</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+        <div class="task done">
+            <p class="task-title">Meryn Trant</p>
+            <span class="fa" aria-hidden="true"></span>
+        </div>
+    </div>
+    <div class="add-new-task">+ ADD NEW</div>
+</div>
+</body>
+
+</html>
