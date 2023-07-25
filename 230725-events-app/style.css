@@ -91,7 +91,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-right: -1.5em;
+    margin: 0 -1.5em;
 }
 
 .highlights>h3 {
@@ -106,7 +106,7 @@ body {
     display: flex;
     gap: 1em;
     width: max-content;
-    padding-right: 2em;
+    padding: 0 1.5em;
     user-select: none;
 }
 

@@ -72,7 +72,7 @@ function init() {
     verticalSlider.addEventListener('mouseup', () => mouseup("vertical"))
     horizontalSlider.addEventListener('mousemove', (e) => mousemove(e, "horizontal"));
     verticalSlider.addEventListener('mousemove', (e) => mousemove(e, "vertical"));
-    clockElement.innerText = date;
+    clockElement.innerText = date.toUpperCase();
 }
 
 function mousedown(e, direction) {
@@ -154,6 +154,7 @@ function createEventsElements() {
         const eventHighlightElement = document.createElement('div');
 
         highlightImageElement.setAttribute('src', `${highlight.imageUrl}`);
+        highlightImageElement.setAttribute('draggable', 'false');
         highlightDateElement.classList.add('date');
         highlightDateElement.textContent = highlight.date.start + " - " + highlight.date.end;
         highlightNameElement.classList.add('name');
@@ -174,6 +175,7 @@ function createEventsElements() {
         const eventElement = document.createElement('div');
 
         imageEventElement.setAttribute('src', `${event.imageUrl}`);
+        imageEventElement.setAttribute('draggable', 'false');
         imageEventWrapperElement.classList.add('image');
         dateEventElement.classList.add('date');
         nameEventElement.classList.add('name');
