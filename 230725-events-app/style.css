@@ -1,0 +1,213 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+:root {
+    --clr-bg: white;
+    --clr-blue: hsl(199, 95%, 64%);
+    --clr-green: hsl(168, 99%, 42%);
+    --clr-fg: black;
+    --clr-fg-overlay: white;
+    --clr-canvas: hsl(240, 57%, 91%);
+
+    --pad: 1.5em;
+    --ff: 'Open Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--ff);
+    font-size: .8rem;
+    background-color: var(--clr-canvas);
+
+    display: grid;
+    place-items: center;
+}
+
+.app {
+    width: 350px;
+    aspect-ratio: 1 / 2;
+    position: relative;
+    border-radius: .8em;
+    background-color: var(--clr-bg);
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    padding: var(--pad);
+    background: linear-gradient(90deg, var(--clr-blue), var(--clr-green));
+    color: var(--clr-fg-overlay);
+}
+
+.notification-bar,
+.left,
+.center,
+.right {
+    display: flex;
+    justify-content: space-between;
+    gap: .2em;
+}
+
+.notification-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: .5em;
+    height: 1em;
+    font-size: .9em;
+    font-weight: 500;
+    color: var(--clr-fg);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.5em;
+}
+
+.menu>div {
+    cursor: pointer;
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-right: -1.5em;
+}
+
+.highlights>h3 {
+    align-self: center;
+}
+
+.highlights-wrapper {
+    overflow-x: scroll;
+}
+
+.events-gallery {
+    display: flex;
+    gap: 1em;
+    width: max-content;
+    padding-right: 2em;
+    user-select: none;
+}
+
+.event-highlight {
+    width: 120px;
+    aspect-ratio: 1;
+    border-radius: .8em;
+    font-size: .8em;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), hsl(219, 27%, 35%));
+    height: 100%;
+    padding: .8em;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.event-highlight .date {
+    font-weight: 600;
+}
+
+.event-highlight>img {
+    position: absolute;
+    top: 0;
+}
+
+.events {
+    padding: var(--pad);
+    font-size: .9em;
+    overflow-y: scroll;
+    user-select: none;
+}
+
+.event {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    padding-bottom: var(--pad);
+}
+
+.event .image {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    margin-top: var(--pad);
+    border-radius: .8em;
+    overflow: hidden;
+    grid-column: 1 / 3;
+}
+
+.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.hint {
+    width: 200px;
+    position: absolute;
+    padding: .5em var(--pad);
+    background-color: hsl(9, 69%, 55%);
+    border-radius: .2em;
+    overflow: hidden;
+    color: var(--clr-fg-overlay);
+    right: 2rem;
+    top: -100%;
+    transition: top 400ms ease;
+}
+
+.scroll-on {
+    top: 4em;
+}
+
+.hint::after {
+    content: "";
+    width: var(--progress);
+    height: 3px;
+    background-color: hsl(10, 38%, 65%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bx-battery {
+    padding: 0 .2em;
+    font-weight: bold;
+    animation: blink 1000ms infinite;
+}
+
+@keyframes blink {
+    from {
+        color: black;
+    }
+
+    to {
+        color: red;
+    }
+}

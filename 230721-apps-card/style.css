@@ -1,0 +1,104 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+img {
+    max-width: 100%;
+}
+:root {
+    --clr-bg: hsl(225, 36%, 36%);
+    --clr-bg-2: hsl(257, 34%, 57%);
+    --clr-accent: hsl(229, 100%, 70%);
+
+    --pad: 1.2rem;
+    font-size: 14px;
+}
+body{
+    height: 100vh;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    place-items: center;
+
+    background: linear-gradient(280deg, var(--clr-bg), var(--clr-bg-2));
+}
+.card {
+    /* height: 500px;
+    width: 500px; */
+    background-color: white;
+    padding: var(--pad);
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 20px -10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--pad);
+}
+.header {
+    padding-bottom: var(--pad);
+    border-bottom: 2px solid lightgray;
+}
+.apps{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.app {
+    height: 100px;
+    aspect-ratio: 1;
+    text-align: center;
+    border-radius: .2rem;
+    transition: box-shadow 200ms ease-in;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app::after {
+    content: "+ ADD";
+    background-color: hsl(89, 75%, 48%);
+    padding: 0 .5rem;
+    color: white;
+    border-radius: .2rem;
+    position: absolute;
+    pointer-events: all;
+    bottom: -20%;
+    cursor: pointer;
+    transition: bottom 200ms ease;
+}
+.app:hover {
+    box-shadow: var(--clr-accent) 0px 10px 20px -10px;
+}
+.app:hover::after {
+    bottom: 10%;
+}
+.app:hover > .app-name {
+    opacity: 0;
+}
+.app > img {
+    width: 50%;
+}
+.app-name {
+    min-width: 56px;
+    position: relative;
+    overflow: hidden;
+}
+.footer{
+    border-top: 2px solid lightgray;
+    padding-top: var(--pad);
+}
+.add-more-apps {
+    padding: .8rem 1rem;
+    background-color: var(--clr-accent);
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: .2rem;
+    transition: box-shadow 200ms ease-in;
+}
+.add-more-apps:hover {
+    box-shadow: var(--clr-accent) 0px 10px 20px -10px;
+    cursor: pointer;
+}
