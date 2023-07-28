@@ -1,0 +1,308 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Work+Sans:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-bg: hsl(310, 100%, 99%);
+    --clr-accent: hsl(329, 84%, 68%);
+    --clr-secondary: hsl(100, 100%, 100%);
+    --clr-primary: hsl(0, 0%, 0%);
+    --clr-shadow: hsl(320, 100%, 97%);
+    --clr-fg: hsl(0, 0%, 0%);
+    --bs: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --clr-sw-ball: var(--clr-bg);
+    --clr-sw-track: var(--clr-accent);
+
+    --ff: 'Work Sans', sans-serif;
+}
+
+.dark-theme {
+    --clr-bg: hsl(334, 23%, 6%);
+    --clr-accent: hsl(329, 84%, 68%);
+    --clr-secondary: hsl(330, 14%, 9%);
+    --clr-primary: hsl(329, 21%, 42%);
+    --clr-shadow: hsl(329, 16%, 51%);
+    --clr-fg: hsl(330, 22%, 91%);
+    --bs: black 0px 7px 29px 0px;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--clr-bg);
+    font-family: var(--ff);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--clr-fg);
+
+    display: grid;
+    place-items: center;
+}
+
+.app {
+    height: 700px;
+    width: 700px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+}
+
+.app>div:not(.dropdown-inputs) {
+    padding: 1rem;
+    background-color: var(--clr-secondary);
+    width: fit-content;
+    height: fit-content;
+    border-radius: .5rem;
+    box-shadow: var(--bs);
+}
+
+.filter-inputs {
+    grid-row: 1 / 3;
+}
+
+.filter-inputs>.check-boxes {
+    padding-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.filter-inputs .option {
+    width: 160px;
+    padding: 1rem;
+    border: 1px solid transparent;
+    transition: 100ms ease;
+}
+
+.option:hover,
+.setting-inputs>.inputs>div:hover {
+    background-color: var(--clr-bg);
+    border-radius: .2em;
+    border: 1px solid rgb(255, 214, 221);
+    cursor: pointer;
+}
+
+.check-boxes input {
+    justify-self: start;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+label:not(.switch label) {
+    position: relative;
+    display: inline-block;
+    padding-left: 2em;
+}
+
+label:not(.switch label)::before {
+    content: "";
+    width: 1em;
+    aspect-ratio: 1;
+    background-color: var(--clr-bg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid lightgray;
+    border-radius: .2em;
+}
+
+input[type=checkbox]:checked+label:before {
+    content: "\2713";
+    color: var(--clr-bg);
+    text-align: center;
+    border: 1px solid var(--clr-accent);
+    background-color: var(--clr-accent);
+    height: 1em;
+    line-height: 1em;
+}
+
+.remove-filters {
+    padding: .8em;
+    color: var(--clr-bg);
+    background-color: var(--clr-primary);
+    font-family: inherit;
+    border: none;
+    border-radius: .3em;
+    transition: all 200ms ease-out;
+    user-select: none;
+}
+
+.remove-filters:hover {
+    box-shadow: var(--clr-primary) 0px 7px 29px -10px;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.remove-filters:active {
+    box-shadow: var(--clr-bg) 0px 7px 29px -10px;
+    transform: translateY(3px);
+    cursor: pointer;
+}
+
+.setting-inputs {
+    position: relative;
+    place-self: center;
+}
+
+.setting-inputs>.shadow {
+    width: 100%;
+    height: 100%;
+    border-radius: .5em;
+    position: absolute;
+    top: -1.5em;
+    left: -1.5em;
+    background-color: var(--clr-shadow);
+    z-index: -1;
+}
+
+.setting-inputs>.title {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: 0 0 1em;
+}
+
+.title>p {
+    font-size: 1.2em;
+}
+
+.setting-inputs>.inputs {}
+
+.setting-inputs>.inputs>div {
+    padding: .6em;
+    border: 1px solid transparent;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.switch {
+    position: relative;
+}
+
+.switch>svg {
+    position: absolute;
+    right: .5em;
+    top: 0;
+    height: 2rem;
+}
+
+svg #switch-ball {
+    fill: var(--clr-sw-ball);
+    transform: translateX(var(--sw-ball-pos));
+}
+
+svg #switch-track {
+    fill: var(--clr-sw-track);
+}
+
+.theme,
+.language {
+    position: relative;
+}
+
+.theme-dropdown,
+.language-dropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--clr-secondary);
+    border-radius: .5em;
+    padding: .5em;
+    width: 100%;
+    transition: all 200ms ease-in-out;
+    display: none;
+    box-shadow: var(--bs);
+}
+
+.theme-dropdown>div,
+.language-dropdown>div {
+    padding: .7em;
+    border-radius: .2em;
+}
+
+.theme-dropdown>div:active,
+.language-dropdown>div:active {
+    color: var(--clr-accent);
+}
+
+.theme-dropdown>div:hover,
+.language-dropdown>div:hover {
+    cursor: pointer;
+    background-color: var(--clr-bg);
+}
+
+.dropdown-inputs {
+    position: relative;
+    justify-self: center;
+    grid-column: 2 / 3;
+    user-select: noen;
+}
+
+.dropdown-head {
+    background-color: var(--clr-secondary);
+    color: gray;
+    width: 300px;
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-head .search {
+    padding: 1em;
+    flex: 1;
+    background-color: inherit;
+    font-family: inherit;
+    border: none;
+    color: var(--clr-fg);
+    border-radius: .2em;
+}
+
+.dropdown-head i {
+    position: absolute;
+    right: 1em;
+}
+
+.inputs-menu {
+    background-color: var(--clr-secondary);
+    position: absolute;
+    padding: .5em;
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    border-radius: .5em;
+    box-shadow: var(--bs);
+    display: none;
+}
+
+.inputs-menu .option {
+    padding: .8em;
+    border: 1px solid transparent;
+    background-color: var(--clr-secondary);
+}
+
+.inputs-menu .option:hover {
+    padding: .8em;
+    border: 1px solid rgb(255, 214, 221);
+    background-color: var(--clr-bg);
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
