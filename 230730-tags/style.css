@@ -1,0 +1,200 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin    : 0;
+    padding   : 0;
+}
+
+:root {
+    --clr-bg        : hsl(260, 100%, 99%);
+    --clr-bg-overlay: hsl(0, 0%, 100%);
+    --crl-primary   : hsl(238, 35%, 19%);
+    --clr-accent    : hsl(343, 83%, 61%);
+    --clr-fg        : hsl(0, 0%, 0%);
+
+    --ff       : 'Josefin Sans', sans-serif;
+    --ff-header: 'Cambria', serif;
+}
+
+body {
+    height          : 100vh;
+    background-color: var(--clr-bg);
+    font-family     : var(--ff);
+    font-size       : 18px;
+    display         : grid;
+    place-items     : center;
+}
+
+.app {
+    width: 800px;
+}
+
+.pop-up {
+    width           : 350px;
+    padding         : 1em;
+    background-color: var(--crl-primary);
+    color           : var(--clr-bg-overlay);
+    border-radius   : .5em;
+    overflow        : hidden;
+    position        : absolute;
+    top             : 1em;
+    right           : 2em;
+    animation       : dropin 200ms forwards;
+    box-shadow      : var(--crl-primary) 0px 5px 15px -5px;
+}
+
+.pop-up::after {
+    content         : "";
+    width           : var(--progress);
+    height          : 3px;
+    background-color: hsl(235, 24%, 31%);
+    position        : absolute;
+    bottom          : 0;
+    left            : 0;
+}
+
+.dropout {
+    animation: dropout 500ms forwards;
+}
+
+.title {
+    display    : block;
+    font-family: var(--ff-header);
+    font-weight: bold;
+    margin     : .5em;
+}
+
+.tagsbox {
+    width        : 100%;
+    padding      : .5em;
+    border       : 1px solid lightgray;
+    border-radius: .5em;
+    cursor       : text;
+    display      : flex;
+    flex-wrap    : wrap;
+    gap          : .3em;
+}
+
+.tag {
+    background-color: var(--crl-primary);
+    color           : var(--clr-bg-overlay);
+    line-height     : 100%;
+    padding         : .8em;
+    border-radius   : .3em;
+    cursor          : pointer;
+}
+
+.tag::after {
+    content     : "🞫";
+    padding-left: 1em;
+}
+
+.tag:hover {
+    background-color: var(--clr-accent);
+}
+
+.taginput {
+    width           : fit-content;
+    background-color: inherit;
+    padding         : .5em 0;
+    font-family     : inherit;
+    font-size       : inherit;
+    border          : none;
+    outline         : none;
+}
+
+.hint {
+    margin   : .3em 0;
+    font-size: .6em;
+}
+
+.hint span {
+    color : blue;
+    cursor: pointer;
+}
+
+.categogy-section {
+    width         : 300px;
+    margin-top    : 3em;
+    display       : flex;
+    flex-direction: column;
+}
+
+.category-button {
+    padding         : 1em;
+    border-radius   : .5em;
+    border          : 1px solid lightgray;
+    background-color: transparent;
+    font-family     : inherit;
+    font-size       : inherit;
+    text-align      : left;
+    position        : relative;
+    cursor          : pointer;
+}
+
+.category-button::after {
+    content         : "";
+    height          : 1em;
+    aspect-ratio    : 1;
+    position        : absolute;
+    margin          : auto;
+    right           : 1em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3E%3Cpath d='M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.active {
+    border-color: var(--clr-accent);
+    outline     : 3px solid hsl(343, 83%, 61%, .2);
+}
+
+.category-options {
+    background-color: var(--clr-bg-overlay);
+    padding         : 1em;
+    margin-top      : .5em;
+    border-radius   : .5em;
+    box-shadow      : rgb(101, 114, 129) 0px 5px 15px -5px;
+    visibility      : visible;
+    display         : flex;
+    flex-direction  : column;
+    gap             : .3em;
+}
+
+.category-options a {
+    padding      : .5em;
+    font-size    : .8em;
+    border-radius: .5em;
+    line-height  : 100%;
+}
+
+.category-options a:hover {
+    background-color: hsl(343, 83%, 61%, .1);
+    cursor          : pointer;
+}
+
+.hidden {
+    opacity       : 0;
+    pointer-events: none;
+}
+
+@keyframes dropin {
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(2vh);
+    }
+}
+
+@keyframes dropout {
+    from {
+        transform: translateY(2vh);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}

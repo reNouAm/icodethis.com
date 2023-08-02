@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <div class="input-code-wrapper">
+                <button class="close-button">&#10005;</button>
+                <h2 class="title">Confirmation</h2>
+                <p class="subtitle">
+                    Please enter the code we sent to the number ********79
+                </p>
+                <div class="inputs">
+                    <input
+                        type="phone"
+                        class="input-code"
+                        id="inputCode-1"
+                        placeholder="—"
+                        maxlength="1"
+                        size="1"
+                    />
+                    <input
+                        type="phone"
+                        class="input-code"
+                        id="inputCode-2"
+                        placeholder="—"
+                        maxlength="1"
+                        size="1"
+                    />
+                    <input
+                        type="phone"
+                        class="input-code"
+                        id="inputCode-3"
+                        placeholder="—"
+                        maxlength="1"
+                        size="1"
+                    />
+                    <input
+                        type="phone"
+                        class="input-code"
+                        id="inputCode-4"
+                        placeholder="—"
+                        maxlength="1"
+                        size="1"
+                    />
+                </div>
+                <p class="input-message">* Wrong code</p>
+                <a class="text-button resend-code">RESEND CODE</a>
+                <button class="confirm-button">Confirm</button>
+            </div>
+            <div class="display-code">
+                <button class="close-button">&#10005;</button>
+                <h2 class="title">Verification Code</h2>
+                <p class="subtitle">
+                    Enter this verification code on your other device to sign
+                    in.
+                </p>
+                <div class="verification-code"></div>
+                <a class="text-button">CLOSE</a>
+            </div>
+        </div>
+        <script src="script.js" defer></script>
+    </body>
+</html>

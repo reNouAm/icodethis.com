@@ -1,0 +1,274 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-grad-p    : hsl(226, 97%, 88%);
+    --clr-grad-p2   : hsl(268, 96%, 72%);
+    --clr-grad-o    : hsl(345, 98%, 84%);
+    --clr-grad-o2   : hsl(37, 100%, 73%);
+    --clr-light-gray: hsl(228, 71%, 99%);
+
+    --clr-bg        : var(--clr-light-gray);
+    --clr-bg-overlay: white;
+    --clr-fg        : hsl(242, 33%, 22%);
+    --clr-fg-overlay: var(--clr-light-gray);
+
+    --deg: 127deg;
+}
+
+.dark-mode {
+    --clr-bg        : hsl(240, 33%, 19%);
+    --clr-bg-overlay: hsl(240, 22%, 24%);
+    --clr-fg        : hsl(0, 0%, 89%);
+    --clr-fg-overlay: hsl(242, 33%, 22%);
+}
+
+body {
+    height     : 100vh;
+    color      : var(--clr-fg);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.theme-switch {
+    position: absolute;
+    top     : 1em;
+    right   : 1em;
+}
+
+.theme-switch:hover i {
+    color : var(--clr-grad-o);
+    cursor: pointer;
+}
+
+canvas {
+    background-color: var(--clr-bg);
+    height          : 100%;
+    width           : 100%;
+    position        : fixed;
+    z-index         : -10;
+}
+
+.container {
+    height         : 100%;
+    width          : 100%;
+    backdrop-filter: blur(100px);
+
+    display    : grid;
+    place-items: center;
+}
+
+.cards {
+    width: 800px;
+
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 1em;
+}
+
+.card {
+    background-color: var(--clr-bg-overlay);
+    padding         : .5em;
+    border-radius   : .3em;
+    transition      : box-shadow 200ms;
+    position        : relative;
+}
+
+.card::before {
+    content      : "";
+    position     : absolute;
+    width        : 0;
+    height       : 0;
+    border-radius: .5em;
+    inset        : 0;
+    margin       : -5px;
+    transition   : all 300ms ease-in;
+    z-index      : -1;
+}
+
+.card:hover::before {
+    width : calc(100% + 10px);
+    height: calc(100% + 10px);
+}
+
+.head {
+    padding      : 1em;
+    text-align   : center;
+    margin-bottom: 1em;
+    border-radius: .2em;
+}
+
+.body {
+    padding: 1em;
+
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    gap           : 1em;
+}
+
+.price-wrap {
+    font-size  : .9em;
+    font-weight: bold;
+}
+
+.price-tag {
+    display  : block;
+    width    : fit-content;
+    margin   : auto;
+    font-size: 2.5em;
+    position : relative;
+}
+
+.price-tag::before {
+    content  : "$";
+    font-size: .4em;
+    position : absolute;
+    top      : 0;
+    left     : -.5em;
+}
+
+.description {
+    text-align: center;
+}
+
+.action-button {
+    width           : 100%;
+    padding         : 1em;
+    background-color: transparent;
+    color           : var(--clr-fg);
+    border          : 1px solid var(--clr-fg);
+    border-radius   : .3em;
+    font-family     : inherit;
+    font-size       : 1em;
+    font-weight     : bold;
+    transition      : translate 200ms ease-in-out, box-shadow 150ms ease-in;
+}
+
+.action-button.focus {
+    background-color: var(--clr-fg);
+    color           : var(--clr-fg-overlay);
+}
+
+.action-button:hover {
+    cursor          : pointer;
+    background-color: var(--clr-fg);
+    color           : var(--clr-fg-overlay);
+    translate       : 0 -2px;
+    box-shadow      : hsl(242, 33%, 22%) 0px 15px 20px -15px;
+}
+
+.action-button:is(.focus):hover {
+    color           : var(--clr-fg);
+    background-color: var(--clr-fg-overlay);
+    border-color    : var(--clr-fg);
+}
+
+.action-button:active {
+    translate: 0 1px;
+}
+
+.price-tag:not(.month)::after {
+    content  : "/mo";
+    font-size: .5em;
+}
+
+.perks-list {
+    list-style-type: none;
+    width          : 100%;
+}
+
+.perks-list li {
+    padding: .5em 0;
+}
+
+.perks-list i {
+    font-size: 1.1em;
+    color    : green;
+}
+
+.perks-list i:not(.bx-check) {
+    color: red;
+}
+
+.card.free {
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 15px 20px 0px;
+}
+
+.card.free .head {
+    background-color: var(--clr-fg-overlay);
+}
+
+.card.lite {
+    box-shadow: rgba(186, 159, 253, 0.534) 0px 15px 20px -10px;
+}
+
+.card:not(.free) .head {
+    color: var(--clr-fg-overlay);
+}
+
+.card.lite .head {
+    background: linear-gradient(90deg, var(--clr-grad-p), var(--clr-grad-p2));
+    position  : relative;
+}
+
+.card.lite .head::before {
+    content         : "★ BEST OFFER";
+    position        : absolute;
+    padding         : .3em;
+    width           : fit-content;
+    height          : fit-content;
+    top             : 0em;
+    right           : -3em;
+    rotate          : 45deg;
+    font-size       : .7em;
+    border-radius   : .5em;
+    background-color: var(--clr-bg-overlay);
+    border          : 1px solid var(--clr-fg);
+    color           : var(--clr-fg);
+    z-index         : 1;
+}
+
+.card.pro {
+    box-shadow: rgb(254, 189, 152, 0.534) 0px 15px 20px -10px;
+}
+
+.card.pro .head {
+    background: linear-gradient(90deg, var(--clr-grad-o), var(--clr-grad-o2));
+}
+
+.card.lite::before {
+    background-image: linear-gradient(var(--deg), var(--clr-grad-p), var(--clr-grad-p2));
+}
+
+.card.pro::before {
+    background-image: linear-gradient(var(--deg), var(--clr-grad-o), var(--clr-grad-o2));
+}
+
+.card:hover {
+    box-shadow: transparent 0px 0px 0px;
+}
+
+
+@media (max-width: 800px) {
+    body {
+        height: 100%;
+    }
+
+    canvas {
+        height: 100%;
+    }
+
+    .cards {
+        width                : 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows   : repeat(3, 1fr);
+        padding              : 1em;
+        gap                  : 2em;
+        margin               : 5em 0;
+    }
+}

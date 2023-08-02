@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <div class="pop-up">
+                Hit Enter or type a comma to insert the tag
+            </div>
+            <div class="tag-section">
+                <label for="taginput" class="title">Tags</label>
+                <div class="tagsbox">
+                    <input
+                        type="text"
+                        class="taginput"
+                        id="taginput"
+                        autofocus
+                    />
+                </div>
+                <p class="hint">
+                    For example: <span>fitness app</span>,
+                    <span>dashboard</span>, <span>navigation</span>,
+                    <span>webshop</span>,
+                    <span>landing page</span>
+                </p>
+            </div>
+            <div class="categogy-section">
+                <div class="title">Category</div>
+                <button class="category-button">Select something</button>
+                <div class="category-options hidden">
+                    <a>Web</a>
+                    <a>Mobile</a>
+                    <a>UI Kit</a>
+                    <a>Coded</a>
+                    <a>Other</a>
+                </div>
+            </div>
+        </div>
+        <script src="script.js" defer></script>
+    </body>
+</html>
