@@ -1,0 +1,213 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap');
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-fg     : hsl(0, 0%, 0%);
+    --clr-bg     : hsl(0, 0%, 100%);
+    --clr-primary: hsl(237, 36%, 20%);
+    --clr-acctent: hsl(349, 73%, 71%);
+    --clr-bg-overlay: hsl(260, 100%, 99%);
+
+    --ff     : 'Montserrat', sans-serif;
+    --ff-head: 'Merriweather', serif;
+    --border: 1px solid rgba(231, 231, 231, 0.582);
+}
+
+body {
+    height     : 100vh;
+    font-family: var(--ff);
+    font-size: 13px;
+
+    display    : grid;
+    align-items: center;
+}
+
+.footer__container {
+    width : 900px;
+    margin: auto;
+
+    display              : grid;
+    grid-template-columns: auto 1fr fit-content(10ch);
+    gap: 2em;
+}
+.head {
+    font-family: var(--ff-head);
+    font-weight: bold;
+}
+.head:is(p) {
+    color: var(--clr-acctent);
+    margin-left: .5em;
+    margin-bottom: .5em;
+}
+.footer__column {}
+.donation {
+    padding: 1em;
+    max-width: 350px;
+    border-radius: .5em;
+    background-color: var(--clr-bg-overlay);
+    border: var(--border);
+    box-shadow: rgba(205, 223, 230, 0.219) 0px 10px 15px 0px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+.icon {
+    grid-row: 1 / 4;
+}
+.action__button {
+    border: none;
+    border-radius: .4em;
+    color: var(--clr-bg);
+    background-color: var(--clr-primary);
+    font-family: inherit;
+    justify-self: start;
+    align-self: start;
+    padding: .5em 1em;
+    transition: translate 200ms ease-in-out, box-shadow 150ms ease;
+}
+.action__button:hover {
+    cursor: pointer;
+    translate: 0 -2px;
+    box-shadow: var(--clr-primary) 0px 10px 15px -10px;
+}
+.action__button:active {
+    translate: 0 1px;
+}
+
+.site__links {
+    display: flex;
+    gap: 1em;
+}
+.social__icons {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .5em;
+}
+
+.social__icons a {
+    padding: 1em;
+    width: fit-content;
+    aspect-ratio: 1;
+    position: relative;
+    color: gray;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+.social__icons a > i {
+    font-size: 2em;
+}
+a:hover {
+    background-color: var(--clr-bg-overlay);
+    border: var(--border);
+    cursor: pointer;
+    color: black;
+}
+.slack__link {
+    grid-column: 1 / 4;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: .5em;
+    background-color: var(--clr-bg-overlay);
+    border: var(--border);
+    border-radius: 100vmax;
+    cursor: pointer;
+}
+.site__links ul {
+    list-style: none;
+}
+.site__links a {
+    color: gray;
+    display: block;
+    padding: .5em;
+    border: 1px solid transparent;
+    border-radius: 100vmax;
+}
+.slack__link svg {
+    margin-right: 1em;
+}
+
+.ad__section {
+    background-color: var(--clr-bg-overlay);
+    border: var(--border);
+    border-radius: .5em;
+    grid-column: 1 / 4;
+    padding: 2em;
+    margin-top: 2em;
+    display: grid;
+    place-items: center;
+}
+#ad-wrapper {
+    stroke: #999898;
+    stroke-width: 6;
+}
+#ad {
+    fill: #999898;
+}
+.bottom__footer {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+}
+.copyright {
+    justify-self: center;
+}
+.project__counter {
+    justify-self: end;
+}
+.project__counter span {
+    display: block;
+    font-family: var(--ff-head);
+    font-size: 3em;
+    font-weight: 700;
+}
+.blinking {
+    animation: blink 200ms forwards;
+}
+
+#heart {
+    animation: float 2700ms infinite;
+}
+#heart_1 {
+    animation: float 3000ms infinite;
+}
+#heart_2 {
+    animation: float 2300ms infinite;
+}
+#heart_3 {
+    animation: float 2000ms infinite;
+}
+#heart_4 {
+    animation: float 1500ms infinite;
+}
+#heart_5 {
+    animation: float 3300ms infinite;
+}
+#heart_6 {
+    animation: float 2500ms infinite;
+}
+#heart_7 {
+    animation: float 3200ms infinite;
+}
+@keyframes float {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0px -2px;
+    }
+}
+@keyframes blink {
+    0% {
+        color: rgb(231, 85, 85);
+    }
+    100% {
+        color: transparent;
+    }
+}
