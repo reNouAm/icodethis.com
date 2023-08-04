@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://use.typekit.net/rbl5vrz.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="app">
+            <button class="cloud__button">
+                <i class="bx bx-cloud-download"></i>
+            </button>
+            <div class="floating__menu">
+                <div class="storage__overview">
+                    <p class="title">Could storage</p>
+                    <progress class="progress__bar"></progress>
+                    <p class="storage__information">
+                        <span id="used__space"></span> of
+                        <span id="total__space"></span> used
+                    </p>
+                </div>
+                <div class="storage__operations">
+                    <div class="operation syncing done">
+                        <div class="progress__icon">
+                            <span>✔</span>
+                        </div>
+                        <div class="status">
+                            <p class="title">File syncing</p>
+                            <p class="subtitle">Up to date</p>
+                        </div>
+                        <div class="settings__option">
+                            <i class="bx bx-cog"></i>
+                        </div>
+                    </div>
+                    <div class="operation updating__cloud">
+                        <div class="progress__icon" id="updateCloudIcon">
+                            <span>✔</span>
+                        </div>
+                        <div class="status">
+                            <p class="title">Updating Cloud</p>
+                            <p class="subtitle" id="percentage">13%</p>
+                        </div>
+                        <div class="settings__option">
+                            <i class="bx bx-cog"></i>
+                        </div>
+                    </div>
+                    <div class="operation updating__solutions">
+                        <div class="progress__icon" id="updateSolutionIcon">
+                            <span>✔</span>
+                        </div>
+                        <div class="status">
+                            <p class="title">Updating Solutions</p>
+                            <p class="subtitle">Waiting...</p>
+                        </div>
+                        <div class="settings__option">
+                            <i class="bx bx-cog"></i>
+                        </div>
+                    </div>
+                    <button class="downloads">Go to downloads</button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

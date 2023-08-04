@@ -1,0 +1,365 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Varela+Round&display=swap');
+
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    border          : none;
+    background-color: transparent;
+    font-family     : inherit;
+    font-weight     : bold;
+}
+
+:root {
+    --clr-bg        : hsl(231, 33%, 96%);
+    --clr-fg        : hsl(220, 71%, 14%);
+    --clr-primary   : hsl(222, 22%, 48%);
+    --clr-secondary : hsl(232, 29%, 90%);
+    --clr-accent    : hsl(224, 100%, 69%);
+    --clr-bg-overlay: hsl(0, 0%, 100%);
+
+    --ff: 'Varela Round', sans-serif;
+    --bs: rgb(117, 122, 134) 0px 5px 20px -10px;
+}
+
+body {
+    height          : 100vh;
+    font-family     : var(--ff);
+    background-color: var(--clr-bg);
+    display         : grid;
+    place-items     : center;
+}
+
+.main {
+    display              : grid;
+    grid-template-columns: auto 1fr;
+    gap                  : 2em;
+}
+
+.round__buttons {
+    justify-self : center;
+    display      : flex;
+    gap          : 2em;
+    margin-bottom: 2em;
+}
+
+.round__button {
+    height          : 60px;
+    padding         : 1em;
+    border-radius   : 50%;
+    aspect-ratio    : 1;
+    background-color: var(--clr-bg-overlay);
+    box-shadow      : var(--bs);
+    position        : relative;
+    transition      : box-shadow 150ms ease;
+}
+
+.round__button svg {
+    position: absolute;
+    width   : 24px;
+    inset   : 0;
+    margin  : auto;
+}
+
+#ideas g>* {
+    fill: var(--clr-fg);
+}
+
+.round__button:hover #history {
+    animation: history 500ms forwards;
+}
+
+.round__button:hover #awards {
+    animation: awards 500ms forwards;
+}
+
+.round__button:hover #bulb {
+    animation: ideas 200ms forwards;
+}
+
+.particle {
+    opacity: 0;
+}
+
+.round__button:hover .particle {
+    animation: ideas 500ms forwards;
+}
+
+.round__button .label {
+    position  : absolute;
+    display   : block;
+    width     : 110%;
+    inset     : 0;
+    text-align: center;
+    margin    : 1.5em auto;
+    visibility: hidden;
+    z-index   : -1;
+}
+
+.round__button .label span {
+    position   : relative;
+    display    : inline-block;
+    font-weight: bold;
+}
+
+.round__button:hover {
+    box-shadow: transparent 0px 5px 20px -5px;
+    cursor    : pointer;
+}
+
+.round__button:active {
+    box-shadow: inset rgb(117, 122, 134) 0px 5px 20px -5px;
+}
+
+.round__button:hover .label {
+    visibility: visible;
+}
+
+.round__button:hover .label span {
+    animation      : fall-out 300ms ease forwards;
+    animation-delay: calc(50ms * var(--d));
+}
+
+.dropdown__menu {
+    grid-column   : 2 / 3;
+    grid-row      : 1 / 3;
+    align-self    : end;
+    display       : flex;
+    flex-direction: column;
+    gap           : 1em;
+}
+
+.dropdown__button {
+    border          : none;
+    background-color: var(--clr-bg-overlay);
+    color           : var(--clr-fg);
+    font-family     : inherit;
+    font-weight     : bold;
+    line-height     : 100%;
+    padding         : 1em;
+    border-radius   : 100vmax;
+    box-shadow      : var(--bs);
+    cursor          : pointer;
+
+    display        : flex;
+    justify-content: space-between;
+}
+
+.dropdown__button svg {
+    width: 1em;
+}
+
+.dropdown__results {
+    background-color: var(--clr-bg-overlay);
+    padding         : 1em;
+    border-radius   : .5em;
+    box-shadow      : var(--bs);
+    visibility      : visible;
+    user-select     : all;
+}
+
+.dropdown__result {
+    font-size  : .9em;
+    font-weight: bold;
+    user-select: none;
+    padding    : .5em;
+    display    : flex;
+    gap        : .3em;
+}
+
+.dropdown__result:hover {
+    cursor          : pointer;
+    background-color: var(--clr-bg);
+    border-radius   : .2em;
+}
+
+.dropdown__result svg {
+    height: 1em;
+}
+
+.search__style {
+    min-width       : 400px;
+    background-color: var(--clr-secondary);
+    border-radius   : 100vmax;
+    padding         : .5em;
+    box-shadow      : inset var(--bs);
+
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.search__input {
+    padding: .5em;
+    color  : var(--clr-primary);
+    flex   : 1;
+}
+
+.search__input:focus {
+    outline: none;
+}
+
+.search__icon {
+    height      : 1.5em;
+    aspect-ratio: 1;
+}
+
+.search__button {
+    background-color: var(--clr-bg-overlay);
+    padding         : .5em .8em;
+    border-radius   : 100vmax;
+    box-shadow      : var(--bs);
+    cursor          : pointer;
+}
+
+.search__icon svg {
+    fill: var(--clr-primary);
+}
+
+.buttom__section {
+    margin-top : 4em;
+    display    : flex;
+    align-items: center;
+    gap        : 1em;
+}
+
+.import__button {
+    background-color: var(--clr-accent);
+    height          : fit-content;
+    padding         : .5em .8em;
+    color           : var(--clr-bg-overlay);
+    border-radius   : 100vmax;
+    display         : flex;
+    align-items     : center;
+    gap             : .5em;
+
+    transition: box-shadow 200ms ease;
+}
+
+.import__button:hover {
+    cursor    : pointer;
+    box-shadow: var(--clr-accent) 0px 10px 15px -10px;
+}
+
+.import__button svg {
+    fill  : var(--clr-bg-overlay);
+    rotate: 90deg;
+}
+
+.buttom__section>small>ul {
+    list-style: none;
+    display   : flex;
+    color     : var(--clr-primary);
+}
+
+small>ul>li+li::before {
+    content: "•";
+    padding: .5em;
+}
+
+small a {
+    user-select: none;
+}
+
+small a:hover {
+    cursor         : pointer;
+    text-decoration: underline;
+}
+
+small .chevron {
+    height: 1em;
+    fill  : var(--clr-primary);
+}
+
+small li:has(.languages__button) {
+    position: relative;
+}
+
+small .dropdown__languages {
+    list-style      : none;
+    background-color: var(--clr-bg-overlay);
+    padding         : .5em;
+    width           : fit-content;
+    position        : absolute;
+    visibility      : visible;
+    user-select     : all;
+    right           : 0;
+    margin-top      : .3em;
+    box-shadow      : var(--bs);
+}
+
+.hidden {
+    visibility : hidden !important;
+    user-select: none;
+}
+
+.active {
+    color      : var(--clr-fg);
+    font-weight: bold;
+}
+
+@keyframes history {
+    0% {
+        fill: var(--clr-fg);
+    }
+
+    30%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    60%,
+    20% {
+        transform: translate3d(0, 2px, 0);
+    }
+
+    100% {
+        fill: var(--clr-accent);
+    }
+}
+
+@keyframes awards {
+    from {
+        fill: var(--clr-fg);
+    }
+
+    40%,
+    60% {
+        filter: drop-shadow(0px 0px 2px rgb(45, 253, 3));
+        fill  : white;
+    }
+
+    to {
+        fill: rgb(86, 173, 60);
+    }
+}
+
+@keyframes ideas {
+    0% {
+        opacity: 0;
+    }
+
+    40%,
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        fill   : rgb(223, 197, 49);
+        opacity: 1;
+    }
+}
+
+@keyframes fall-out {
+    0% {
+        translate: 0 0;
+    }
+
+    100% {
+        translate: 0 3.5em;
+    }
+}

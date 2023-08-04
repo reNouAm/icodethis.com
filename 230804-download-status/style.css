@@ -1,0 +1,213 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-fg        : hsl(0, 0%, 0%);
+    --clr-bg        : hsl(213, 100%, 98%);
+    --clr-bg-overlay: hsl(0, 0%, 100%);
+    --clr-accent    : hsl(219, 82%, 93%);
+
+    --ff: "source-sans-3", sans-serif;
+    --fw: 400;
+
+    --pad: 1.5em;
+    --rad: 1em;
+    --deg: 30deg;
+    --pie: rgb(207, 207, 207);
+}
+
+button {
+    font-family     : inherit;
+    font-size       : inherit;
+    background-color: transparent;
+    border          : none;
+}
+
+button:hover {
+    outline: 5px solid var(--clr-accent);
+    cursor : pointer;
+}
+
+body {
+    height          : 100vh;
+    background-color: var(--clr-bg);
+    font-family     : var(--ff);
+    font-weight     : var(--fw);
+    display         : grid;
+    place-items     : center;
+}
+
+.app {
+    width         : 350px;
+    display       : flex;
+    flex-direction: column;
+    gap           : .5em;
+}
+
+.cloud__button {
+    align-self      : flex-end;
+    background-color: var(--clr-bg-overlay);
+    border-radius   : .5em;
+    width           : fit-content;
+}
+
+.cloud__button i {
+    padding  : .5em;
+    font-size: 1.3em;
+}
+
+.floating__menu {
+    width           : 100%;
+    background-color: var(--clr-bg-overlay);
+    border-radius   : var(--rad);
+    padding         : var(--pad);
+    box-shadow      : var(--clr-accent) 0px 5px 15px -3px;
+    visibility      : hidden;
+}
+
+.storage__overview {
+    background-color: var(--clr-bg);
+    border          : 1px solid var(--clr-accent);
+    border-radius   : calc(var(--pad) - 1em);
+    padding         : .7em;
+    margin-bottom   : 1em;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.progress__bar {
+    width : 100%;
+    margin: .5em 0;
+}
+
+.progress__bar[value],
+.progress__bar[value]::-webkit-progress-value {
+    background-color: white;
+    border          : 1px solid var(--clr-accent);
+    padding         : .2em;
+    height          : 1em;
+    border-radius   : 100vmax;
+}
+
+.progress__bar[value]::-webkit-progress-bar,
+.progress__bar[value]::-moz-progress-bar {
+    background-color: var(--clr-fg);
+    border-radius   : 100vmax;
+    height          : .5em;
+}
+
+.storage__information {
+    font-size: .8em;
+}
+
+.storage__operations {
+    display       : flex;
+    flex-direction: column;
+}
+
+.operation {
+    padding: 1em;
+
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    gap            : 1em;
+}
+
+.operation+.operation {
+    border-top: 2px solid var(--clr-accent);
+}
+
+.progress__icon {
+    height       : 2em;
+    aspect-ratio : 1;
+    border-radius: 50%;
+    position     : relative;
+}
+
+#updateCloudIcon {
+    background-image: conic-gradient(var(--clr-fg) var(--deg), rgb(207, 207, 207) 0deg);
+}
+
+#updateSolutionIcon {
+    background-image: conic-gradient(rgb(207, 207, 207) 0deg, rgb(207, 207, 207) 80deg, var(--pie) 80deg, var(--pie) 180deg, rgb(207, 207, 207) 180deg, rgb(207, 207, 207) 270deg, rgb(207, 207, 207) 270deg);
+    animation       : var(--animation) 2s forwards;
+}
+
+.progress__icon span {
+    height          : 1.5em;
+    aspect-ratio    : 1;
+    position        : absolute;
+    inset           : 0;
+    margin          : auto;
+    border-radius   : 50%;
+    background-color: var(--clr-bg-overlay);
+    color           : white;
+    text-align      : center;
+    line-height     : 2em;
+}
+
+.operation:is(.done) .progress__icon>span {
+    height          : 100%;
+    aspect-ratio    : 1;
+    position        : absolute;
+    inset           : 0;
+    margin          : auto;
+    border-radius   : 50%;
+    background-color: hsl(85, 80%, 37%);
+}
+
+.status {
+    flex: 1;
+}
+
+.subtitle {
+    font-size: .8em;
+    color    : rgb(80, 80, 80);
+}
+
+.settings__option {
+    opacity: 0;
+}
+
+.operation:is(.done) .settings__option {
+    opacity: 1;
+}
+
+.settings__option:hover {
+    cursor: pointer;
+}
+
+.settings__option i {
+    font-size: 1.3em;
+    color    : rgb(155, 155, 155);
+}
+
+.downloads {
+    align-self   : flex-start;
+    padding      : .5em 3em;
+    border       : 1px solid var(--clr-accent);
+    border-radius: .5em;
+}
+
+.show {
+    visibility: visible;
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+
+    /* 1%, 90% {
+        --pie: black;
+    } */
+    100% {
+        rotate: 720deg;
+    }
+}
