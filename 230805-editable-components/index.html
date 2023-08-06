@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <section class="info__display show">
+            <div class="option type">
+                <div class="icon"><i class='bx bx-home-alt'></i></div>
+                <p class="label">TYPE OF DWELLING</p>
+                <P class="value">Detached</P>
+            </div>
+            <div class="option area__size">
+                <div class="icon"><i class='bx bx-area' ></i></i></div>
+                <p class="label">LIVING AREA</p>
+                <P class="value">147 m2</P>
+            </div>
+            <div class="option selling__estimate">
+                <div class="icon"><i class='bx bx-dollar'></i></div>
+                <p class="label">COSIDERED TO SOLD WITHIN</p>
+                <P class="value">1 year</P>
+            </div>
+            <button class="action__button round edit"><i class='bx bxs-pencil' ></i></button>
+        </section>
+        <section class="info__edit hidden">
+            <h2 class="title">Edit</h2>
+            <div>Enter details and let other users know when you are considering selling the property</div>
+            <div class="options__wrapper">
+                <div class="option type">
+                    <div class="icon"><i class='bx bx-home-alt'></i></div>
+                    <label class="label">TYPE OF DWELLING</label>
+                    <select name="type" id="type">
+                        <option value="Attached">Attached</option>
+                        <option value="Detached" selected>Detached</option>
+                        <option value="Semi-detached">Semi-detached</option>
+                        <option value="Appartement">Appartement</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="option area__size">
+                    <div class="icon"><i class='bx bx-area' ></i></i></div>
+                    <label for="areaSize" class="label">LIVING AREA</label>
+                    <div class="input">
+                        <input type="text" name="areaSize" id="areaSize" value="147">
+                        <div>m2</div>
+                    </div>
+                </div>
+                <div class="option selling__estimate">
+                    <div class="icon"><i class='bx bx-dollar'></i></div>
+                    <p class="label">COSIDERED TO SOLD WITHIN</p>
+                    <select name="duration" id="duration">
+                        <option value="6 months">6 months</option>
+                        <option value="1 year" selected>1 year</option>
+                        <option value="2 year">2 year</option>
+                        <option value="3 year">3 year</option>
+                        <option value="4 year">4 year</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button class="secondary__button cancel__edit">Cancel</button>
+                <button class="action__button save__edit">Save</button>
+            </div>
+            <button class="round cancel"><i class='bx bx-x' ></i></button>
+        </section>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

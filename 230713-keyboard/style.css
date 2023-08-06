@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
+
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-accent         : hsl(179, 65%, 39%);
+    --clr-bg             : hsl(228, 56%, 98%);
+    --clr-bg-overlay     : hsl(0, 0%, 100%);
+    --clr-fg             : hsl(225, 2%, 53%);
+    --clr-fg-edit-section: hsl(229, 16%, 66%);
+    --clr-primary        : hsl(229, 51%, 8%);
+}
+
+body {
+    height          : 100vh;
+    background-color: var(--clr-bg);
+    color           : var(--clr-fg);
+    font-family     : 'Mallanna', sans-serif;
+    font-size       : 14px;
+
+    display    : grid;
+    place-items: center;
+}
+
+.app {
+    width: 800px;
+
+    display       : flex;
+    flex-direction: column;
+}
+
+/* --- */
+.info__display {
+    background-color     : var(--clr-bg-overlay);
+    position             : relative;
+    box-shadow           : rgba(197, 208, 221, 0.678) 0px 5px 15px -5px;
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.option {
+    width     : 100%;
+    padding   : 3em 0;
+    text-align: center;
+    transition: background-color 200ms ease;
+}
+
+.info__display .value {
+    font-weight: bold;
+    color      : var(--clr-primary);
+}
+
+/* --- */
+.info__edit {
+    background-color: var(--clr-primary);
+    color           : var(--clr-fg-edit-section);
+    padding         : 3em 0;
+    position        : relative;
+    box-shadow      : rgba(197, 208, 221, 0.678) 0px 5px 15px -5px;
+    text-align      : center;
+}
+
+.info__edit>div:nth-child(2) {
+    width      : 50ch;
+    line-height: 100%;
+    margin     : auto;
+}
+
+.options__wrapper {
+    width                : 100%;
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.options__wrapper .option {
+    padding       : 3em 2.5em;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+}
+
+.options__wrapper select {
+    min-width    : 150px;
+    border       : none;
+    border-radius: .2em;
+}
+
+.options__wrapper .input {
+    width           : 150px;
+    overflow        : hidden;
+    border-radius   : .2em;
+    background-color: var(--clr-bg);
+    display         : flex;
+}
+
+.options__wrapper input {
+    width : 120px;
+    border: none;
+}
+
+.options__wrapper input:focus-visible {
+    outline: none;
+}
+
+.info__edit div:has(button) {
+    width          : 100%;
+    display        : flex;
+    justify-content: center;
+}
+
+.cancel__edit,
+.save__edit {
+    font-size    : 1.1em;
+    padding      : .8em 6em;
+    margin       : .5em;
+    border-radius: .3em;
+    transition   : box-shadow 200ms ease;
+}
+
+.save__edit {
+    outline-offset: 2px;
+}
+
+.save__edit:hover {
+    box-shadow: var(--clr-accent) 0px 15px 20px -10px;
+}
+
+.cancel__edit {
+    outline: 2px solid rgb(46, 52, 65);
+}
+
+.cancel__edit:hover {
+    outline-width: 3px;
+}
+
+.cancel__edit:active {
+    outline-color: var(--clr-accent);
+}
+
+.round.cancel {
+    background-color: var(--clr-bg-overlay);
+    color           : var(--clr-primary);
+}
+
+/* --- */
+*:focus {
+    outline: 2px solid var(--clr-accent);
+}
+
+section {
+    border-radius: .5em;
+}
+
+button {
+    border          : none;
+    background-color: transparent;
+    color           : inherit;
+    cursor          : pointer;
+    font-family     : inherit;
+}
+
+.round {
+    --size       : 4em;
+    height       : var(--size);
+    width        : var(--size);
+    border-radius: 50%;
+    box-shadow   : rgba(171, 188, 211, 0.678) 0px 5px 10px 0px;
+    position     : absolute;
+    right        : calc(var(--size) / 2);
+    bottom       : calc(var(--size) / -2);
+    animation    : buttonAppear 500ms forwards;
+}
+
+.round i {
+    padding: 1em;
+}
+
+.action__button {
+    background-color: var(--clr-accent);
+    color           : var(--clr-bg-overlay);
+}
+
+i {
+    font-size: 1.3em;
+}
+
+input,
+select {
+    font-family     : inherit;
+    font-weight     : bold;
+    background-color: var(--clr-bg);
+    border-radius   : .2em;
+    padding         : .2em .5em;
+}
+
+option {
+    font-weight: normal;
+}
+
+option[selected] {
+    color      : var(--clr-accent);
+    font-weight: bold;
+}
+
+.show {
+    opacity       : 1;
+    pointer-events: all;
+    animation     : show 100ms ease-in;
+}
+
+.hidden {
+    opacity       : 0;
+    display       : none;
+    pointer-events: none;
+    animation     : hide 200ms ease-out;
+}
+
+/* --- */
+@keyframes buttonAppear {
+    0% {
+        scale: 0;
+    }
+
+    80% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        filter : blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
